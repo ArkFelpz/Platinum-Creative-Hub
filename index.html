@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Platinum Creative Hub - Agência de criação, design, produção e pós-produção. Transformamos ideias em conceitos sólidos com inovação e criatividade.">
+  <meta name="keywords" content="agência criativa, design, produção, pós-produção, marketing digital, branding">
+  <meta name="author" content="Platinum Creative Hub">
+  <meta property="og:title" content="PLATINUM · Crie ideias e aprimore-as em um único lugar">
+  <meta property="og:description" content="Junte-se à agência com mais inovação e criatividade. Transformamos ideias em conceitos sólidos.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <title>PLATINUM · Crie ideias e aprimore-as em um único lugar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="512x512" href="IMGS/favicon_io/android-chrome-512x512.png">
   <link rel="icon" type="image/png" sizes="192x192" href="IMGS/favicon_io/android-chrome-192x192.png">
@@ -12,89 +22,286 @@
   <link rel="icon" type="image/png" sizes="32x32" href="IMGS/favicon_io/favicon-32x32.png">
 </head>
 <body>
-  <div id="header"></div>
+  <header id="header" role="banner"></header>
   
-  <main>
-<section class="hero">
-  <div class="hero-background">
-    <div class="hero-content">
-      <h1>Crie ideias e aprimore-as<br>em um único lugar</h1>
-      <p>Junte-se à agência com mais inovação e criatividade.</p>
+  <main role="main">
+    <!-- Hero Section - Design GitHub Atual -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Crie ideias e aprimore-as em um único lugar</h1>
+          <p class="hero-description">Junte-se à agência com mais inovação e criatividade. Transformamos ideias em conceitos sólidos, planejando cada detalhe para garantir inovação e relevância.</p>
+          
+          <div class="hero-actions">
+            <form class="signup-form" id="emailForm">
+              <div class="input-group">
+                <input 
+                  type="email" 
+                  id="emailInput" 
+                  placeholder="Digite seu e-mail"
+                  required
+                  class="email-input"
+                >
+                <span class="email-example" id="emailExample">you@domain.com</span>
+                <button type="submit" class="btn-primary">
+                  Começar Agora
+                </button>
+              </div>
+              <div id="email-error" class="error-message"></div>
+            </form>
+            
+            <div class="hero-links">
+              <a href="sobre nos/index.html" class="btn-secondary">
+                Conheça a Platinum
+              </a>
+              <a href="contato/index.html" class="btn-link">
+                Entre em contato
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="feature-showcase">
+            <div class="feature-card">
+              <div class="feature-icon">🎨</div>
+              <h3>Criação</h3>
+              <p>Transformamos ideias em conceitos sólidos</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">✨</div>
+              <h3>Design</h3>
+              <p>Damos forma e identidade visual</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Produção</h3>
+              <p>Executamos com precisão e qualidade</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔧</div>
+              <h3>Pós-Produção</h3>
+              <p>Aprimoramos e finalizamos o conteúdo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div class="hero-actions">
-<div class="email-box">
-  <input type="email" id="emailInput" placeholder="Digite seu e-mail">
-  <button class="btn-primary" id="startBtn">Começar Agora</button>
-</div>
-        <a href="sobre nos/index.html">
-        <button class="btn-secondary">
-          <span class="btn-text">Conheça a Platinum</span>
-        </button>  
-      </a>
+    <!-- Modal para Feature Cards -->
+    <div id="featureModal" class="feature-modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Fechar modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="modal-body">
+          <div class="modal-icon" id="modalIcon"></div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-description" id="modalDescription"></p>
+          <div class="modal-details" id="modalDetails"></div>
+          <div class="modal-features" id="modalFeatures"></div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="IMGS/teste.png" alt="Imagem Hero">
-    </div>
-  </div>
-</section>
-
-<!-- Menu Hero em outra section -->
-<section class="menu-hero">
-  <div class="hero-menu-wrapper">
-    <div class="hero-menu-box">
-      <div class="hero-menu">
-        <button class="active" data-img="IMGS/teste.png" data-text="Transformamos ideias em conceitos sólidos, planejando cada detalhe para garantir inovação e relevância.">Criação</button>
-        <button data-img="IMGS/teste2.png" data-text="Damos forma e identidade visual aos projetos, combinando estética e funcionalidade para encantar o público.">Design</button>
-        <button data-img="IMGS/teste3.png" data-text="Executamos o projeto com precisão, garantindo qualidade técnica e atenção em cada etapa do processo.">Produção</button>
-        <button data-img="IMGS/teste4.png" data-text="Aprimoramos e finalizamos o conteúdo, ajustando detalhes, efeitos e acabamentos para o resultado perfeito.">Pós-Produção</button>
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="features-header">
+          <h2 class="section-title">Por que escolher a Platinum?</h2>
+          <p class="section-description">Oferecemos soluções completas em criação, design, produção e pós-produção com foco na excelência e inovação.</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-content">
+              <h3>Inovação Constante</h3>
+              <p>Mantemos-nos sempre atualizados com as últimas tendências e tecnologias do mercado criativo.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-content">
+              <h3>Qualidade Premium</h3>
+              <p>Garantimos a mais alta qualidade em todos os nossos projetos, desde a concepção até a entrega final.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-content">
+              <h3>Atendimento Personalizado</h3>
+              <p>Cada projeto é único e recebe atenção dedicada para atender às necessidades específicas do cliente.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="hero-text" id="hero-text">
-      Transformamos ideias em conceitos sólidos, planejando cada detalhe para garantir inovação e relevância
-    </div>
-  </div>
-</section>
-<section class="cases">
-  <div class="hero-logos">
-    <div class="logos-track">
-      <img src="IMGS/logo principal.png" alt="Logo 1">
-      <img src="IMGS/honoo logo.jpg" alt="Logo 2">
-      <img src="IMGS/flowgameslogo.png" alt="Logo 3">
-      <img src="IMGS/nuuvem logojpg.jpg" alt="Logo 4">
-      <img src="IMGS/cuponomia.jpg" alt="Logo 5">
-      <img src="IMGS/einerd logo.jpg" alt="Logo 6">
-      <img src="IMGS/animenokokoro logo.jpg" alt="Logo 7">
-      <img src="IMGS/logo_jovens.png" alt="Logo 8">
-      <img src="IMGS/logo9.png" alt="Logo 9">
-      <img src="IMGS/logo10.png" alt="Logo 10">  
-      <img src="IMGS/logo11.png" alt="Logo 11">
-      <img src="IMGS/logo12.png" alt="Logo 12">
-      <img src="IMGS/logo13.png" alt="Logo 13">
-      <!-- duplicação para loop contínuo -->
-      <img src="IMGS/logo principal.png" alt="Logo 1">
-      <img src="IMGS/honoo logo.jpg" alt="Logo 2">
-      <img src="IMGS/flowgameslogo.png" alt="Logo 3">
-      <img src="IMGS/nuuvem logojpg.jpg" alt="Logo 4">
-      <img src="IMGS/cuponomia.jpg" alt="Logo 5">
-      <img src="IMGS/einerd logo.jpg" alt="Logo 6">
-      <img src="IMGS/animenokokoro logo.jpg" alt="Logo 7">
-      <img src="IMGS/logo_jovens.png" alt="Logo 8">
-      <img src="IMGS/logo9.png" alt="Logo 9">
-      <img src="IMGS/logo10.png" alt="Logo 10">  
-      <img src="IMGS/logo11.png" alt="Logo 11">
-      <img src="IMGS/logo12.png" alt="Logo 12">
-      <img src="IMGS/logo13.png" alt="Logo 13">
-    </div>
-  </div>
-  <div class="logos-footer-line"></div>
-</section>
-<section class="projetos">
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Projetos Concluídos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Clientes Satisfeitos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Anos de Experiência</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Suporte Disponível</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <div class="testimonials-carousel">
+          <button class="carousel-btn prev" aria-label="Depoimento anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="testimonials-container">
+            <div class="testimonials-track">
+              <div class="testimonial-card active">
+                <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>"A Platinum transformou completamente nossa identidade visual. O trabalho de criação e design superou todas as nossas expectativas. Recomendo!"</p>
+                  <div class="testimonial-author">
+                    <div class="author-info">
+                      <h4>Maria Silva</h4>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>"Excelente qualidade na produção e pós-produção. A equipe é muito profissional e entregou nosso projeto dentro do prazo com qualidade excepcional."</p>
+                  <div class="testimonial-author">
+                    <div class="author-info">
+                      <h4>João Santos</h4>
+                      <span>Diretor, Nuuvem</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>"A Platinum nos ajudou a criar uma marca única e memorável. O processo de criação foi incrível e o resultado final ficou perfeito."</p>
+                  <div class="testimonial-author">
+                    <div class="author-info">
+                      <h4>Ana Costa</h4>
+                      <span>Fundadora, Cuponomia</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="stars">★★★★★</div>
+                  <p>"Trabalho impecável desde o conceito até a finalização. A Platinum é sinônimo de qualidade e inovação no mercado criativo."</p>
+                  <div class="testimonial-author">
+                    <div class="author-info">
+                      <h4>Carlos Oliveira</h4>
+                      <span>Gerente, Jovens</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button class="carousel-btn next" aria-label="Próximo depoimento">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="carousel-dots">
+          <button class="dot active" data-slide="0" aria-label="Ir para depoimento 1"></button>
+          <button class="dot" data-slide="1" aria-label="Ir para depoimento 2"></button>
+          <button class="dot" data-slide="2" aria-label="Ir para depoimento 3"></button>
+          <button class="dot" data-slide="3" aria-label="Ir para depoimento 4"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+      <div class="container">
+        <h2 class="section-title">Empresas que confiam na Platinum</h2>
+        <div class="clients-grid">
+          <div class="client-logo">
+            <img src="IMGS/logo principal.png" alt="Platinum Creative Hub" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/honoo logo.jpg" alt="Honoo" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/flowgameslogo.png" alt="Flow Games" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/nuuvem logojpg.jpg" alt="Nuuvem" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/cuponomia.jpg" alt="Cuponomia" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/einerd logo.jpg" alt="Einerd" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/animenokokoro logo.jpg" alt="Anime no Kokoro" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="IMGS/logo_jovens.png" alt="Jovens" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Pronto para transformar sua ideia?</h2>
+          <p>Entre em contato conosco e descubra como podemos ajudar seu projeto a se destacar no mercado.</p>
+          <div class="cta-actions">
+            <a href="contato/index.html" class="btn-primary large">
+              Começar Projeto
+            </a>
+            <a href="sobre nos/index.html" class="btn-secondary large">
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
   
-</section>
-  <div id="footer"></div>
-</main>
+  <footer id="footer" role="contentinfo"></footer>
+  
   <script src="javascript.js"></script>
 </body>
 </html>
