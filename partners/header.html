@@ -52,12 +52,97 @@
       gap: 5px;
       color: gray;
     }
-   .dropdown-icon {
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-icon {
       transition: transform 0.3s;
-}
-    nav li:hover .dropdown-icon {
+    }
+    
+    .dropdown:hover .dropdown-icon {
       transform: rotate(180deg);
-}
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #f8f9fa;
+      border: 1px solid #e1e4e8;
+      border-radius: 12px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+      min-width: 400px;
+      width: max-content;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    
+    .mega-menu {
+      min-width: 500px;
+    }
+    
+    .mega-menu-content {
+      display: flex;
+      padding: 24px;
+      gap: 32px;
+    }
+    
+    .mega-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .mega-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #24292f;
+      margin: 0 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f39c12;
+    }
+    
+    .mega-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .mega-links li {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .mega-links a {
+      display: block;
+      padding: 8px 0;
+      color: #656d76;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-radius: 4px;
+    }
+    
+    .mega-links a:hover {
+      color: #f39c12;
+      background: rgba(243, 156, 18, 0.05);
+      padding-left: 8px;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 nav ul li a.active {
   color: #f39c12; /* mesma cor do hover */
   font-weight: bold;
@@ -113,6 +198,47 @@ nav ul li.logo img {
       .menu-toggle {
         display: block;
       }
+      
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.05);
+        margin-top: 12px;
+        border-radius: 8px;
+        min-width: auto;
+        width: 100%;
+        padding: 16px;
+      }
+      
+      .mega-menu-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+      }
+      
+      .mega-column {
+        min-width: auto;
+      }
+      
+      .mega-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+      
+      .mega-links a {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 13px;
+      }
+      
+      .dropdown:hover .dropdown-menu {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -120,27 +246,99 @@ nav ul li.logo img {
  <header id="header">
   <nav id="navbar">
     <ul>
-      <li class="logo"><img src="../IMGS/PLATINUM.png" alt="Logo"></li>
+      <li class="logo"><img src="IMGS/PLATINUM.png" alt="Logo"></li>
       <li><a href="index.html">Início</a></li>
-      <li>
+      <li class="dropdown">
         <a href="sobre nos/index.html">Sobre Nós</a>
         <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
         </svg>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-content">
+            <div class="mega-column">
+              <h3 class="mega-title">Sobre a Platinum</h3>
+              <ul class="mega-links">
+                <li><a href="sobre nos/index.html">Por que a Platinum</a></li>
+                <li><a href="sobre nos/index.html#equipe">Equipe</a></li>
+                <li><a href="sobre nos/index.html#parceiros">Parceiros</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h3 class="mega-title">Impacto & Cases</h3>
+              <ul class="mega-links">
+                <li><a href="sobre nos/index.html#impacto">Impacto Social</a></li>
+                <li><a href="sobre nos/index.html#historia">História de Cliente</a></li>
+                <li><a href="sobre nos/index.html#roadmap">Roadmap</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
-      <li>
+      <li class="dropdown">
         <a href="#">Soluções</a>
         <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
         </svg>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-content">
+            <div class="mega-column">
+              <h3 class="mega-title">Tecnologia</h3>
+              <ul class="mega-links">
+                <li><a href="servicos/index.html#ia">IA</a></li>
+                <li><a href="servicos/index.html#seguranca">Segurança</a></li>
+                <li><a href="servicos/index.html#api">API de Desenvolvimento</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h3 class="mega-title">Recursos</h3>
+              <ul class="mega-links">
+                <li><a href="servicos/index.html#recursos">Recursos</a></li>
+                <li><a href="servicos/index.html#forum">Fórum da Comunidade</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
-      <li>
+      <li class="dropdown">
         <a href="#">Contato</a>
         <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
         </svg>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-content">
+            <div class="mega-column">
+              <h3 class="mega-title">Contato</h3>
+              <ul class="mega-links">
+                <li><a href="contato/index.html">Contato com a Platinum</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
-      <li><a href="#">Preços</a></li>
+      <li class="dropdown">
+        <a href="#">Preços</a>
+        <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+        </svg>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-content">
+            <div class="mega-column">
+              <h3 class="mega-title">Produtos</h3>
+              <ul class="mega-links">
+                <li><a href="loja/index.html">Loja</a></li>
+                <li><a href="servicos/index.html">Serviços Profissionais</a></li>
+              </ul>
+            </div>
+            <div class="mega-column">
+              <h3 class="mega-title">Suporte</h3>
+              <ul class="mega-links">
+                <li><a href="suporte/index.html">Suporte Platinum Premium</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
@@ -148,23 +346,64 @@ nav ul li.logo img {
     function toggleMenu() {
       document.getElementById("navbar").classList.toggle("active");
     }
-  </script>
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("active");
-  }
 
-  // Destacar link ativo
-  document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname; // ex: /produtos/index.html
-    const links = document.querySelectorAll("#navbar a");
+    // Destacar link ativo
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname; // ex: /produtos/index.html
+      const links = document.querySelectorAll("#navbar a");
 
-    links.forEach(link => {
-      if (link.getAttribute("href") === currentPath) {
-        link.classList.add("active");
-      }
+      links.forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        }
+      });
+
+      // Funcionalidade dos dropdowns
+      const dropdowns = document.querySelectorAll('.dropdown');
+      
+      dropdowns.forEach(dropdown => {
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        const dropdownLink = dropdown.querySelector('a');
+        
+        // Fechar dropdown ao clicar fora
+        document.addEventListener('click', function(event) {
+          if (!dropdown.contains(event.target)) {
+            dropdownMenu.style.opacity = '0';
+            dropdownMenu.style.visibility = 'hidden';
+            dropdownMenu.style.transform = 'translateY(-10px)';
+          }
+        });
+        
+        // Toggle dropdown no mobile
+        if (window.innerWidth <= 900) {
+          dropdownLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isVisible = dropdownMenu.style.opacity === '1';
+            
+            // Fechar todos os outros dropdowns
+            dropdowns.forEach(otherDropdown => {
+              if (otherDropdown !== dropdown) {
+                const otherMenu = otherDropdown.querySelector('.dropdown-menu');
+                otherMenu.style.opacity = '0';
+                otherMenu.style.visibility = 'hidden';
+                otherMenu.style.transform = 'translateY(-10px)';
+              }
+            });
+            
+            // Toggle do dropdown atual
+            if (isVisible) {
+              dropdownMenu.style.opacity = '0';
+              dropdownMenu.style.visibility = 'hidden';
+              dropdownMenu.style.transform = 'translateY(-10px)';
+            } else {
+              dropdownMenu.style.opacity = '1';
+              dropdownMenu.style.visibility = 'visible';
+              dropdownMenu.style.transform = 'translateY(0)';
+            }
+          });
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
